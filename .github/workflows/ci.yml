@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'develop'
+  pull_request:
+    branches:
+      - '**'
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-22.04
+    env:
+      LELE_EE: ${{ secrets.LETE }}
+    steps:
+      - run: |
+          echo hello
+          printenv
